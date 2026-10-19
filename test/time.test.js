@@ -12,9 +12,10 @@ test('洛杉矶 2002-07-07 05:05 —— PDT 夏令时下算错一档时辰的经
   // 钟面 05:05 PDT；真太阳时退到 04:07，落寅时（不含 DST 的旧口径会落在卯时，命宫差两宫）
   assert.equal(r.timezone, 'America/Los_Angeles');
   assert.equal(r.path, 'iana');
-  // 与生产链路实测一致：04:08（历史文档曾写 04:07，差 1 分钟，同属寅时）
-  assert.equal(r.trueSolar.time, '04:08');
-  assert.equal(r.correctionMinutes, -57);
+  // 高精度均时差（Meeus）下 04:07。旧 Spencer 近似式给 04:08，差 1 分钟。
+  // 独立验算：UTC 12:05 + 经度(−118.24×4=−472.96m) = 04:12.04，加 EOT −4.91m = 04:07.13 → 04:07
+  assert.equal(r.trueSolar.time, '04:07');
+  assert.equal(r.correctionMinutes, -58);
   assert.equal(r.branch, '寅');
   assert.equal(r.branchIndex, 2);
   assert.equal(r.dayShift, 0);
@@ -45,9 +46,10 @@ test('中国内地 1986–1991 夏令时：1988-06-15 12:00 上海先回退 1 �
   assert.equal(noDst.dstMinutes, 0);
   // 夏令时期间钟面 12:00 = 标准时 11:00，真太阳时因此比同经度的冬令时再退 1 小时
   assert.equal(inDst.trueSolar.time, '11:05');
-  assert.equal(noDst.trueSolar.time, '12:10');
+  // 冬令时：EOT(1988-12-15) = +4.85m，经度 +5.89m，合计 +10.75 → 12:11（旧近似式给 12:10）
+  assert.equal(noDst.trueSolar.time, '12:11');
   assert.equal(inDst.correctionMinutes, -55);
-  assert.equal(noDst.correctionMinutes, 10);
+  assert.equal(noDst.correctionMinutes, 11);
 });
 
 test('夏令时起止边界：起始日 01:59 未生效、02:00 生效', () => {

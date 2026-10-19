@@ -1,0 +1,80 @@
+{
+  "about": "均时差权威基准点。数据来源为中科院紫金山天文台（国家天文台系统）公开发布值，用于校验 equationOfTime() 的高精度实现，不做运行期查表。",
+  "why_not_table": "国家天文台/NADC 未提供均时差 HTTP API；《中国天文年历》为出版物。均时差是确定性天体力学量，用 Meeus 算法计算可复现官方值到 1 秒内，故采用「算法计算 + 官方值校验」而非「年历查表插值」。",
+  "measured": {
+    "algorithm": "Meeus, Astronomical Algorithms, 2nd ed., Ch.28",
+    "epoch_range": "1900-01-01 ~ 2100-12-31",
+    "claimed_accuracy_seconds": 1
+  },
+  "points": [
+    {
+      "date": "2024-06-21",
+      "eot_seconds": -115,
+      "stated": "真太阳时比平太阳时慢 1 分 55 秒",
+      "source": "紫金山天文台科普（人民网 2024-07-05 转载）",
+      "tolerance_seconds": 2,
+      "confidence": "official"
+    },
+    {
+      "date": "2024-07-04",
+      "eot_seconds": -272,
+      "stated": "真太阳时比平太阳时慢 4 分 32 秒",
+      "source": "紫金山天文台科普（人民网 2024-07-05 转载）",
+      "tolerance_seconds": 2,
+      "confidence": "official"
+    },
+    {
+      "date": "2024-04-16",
+      "eot_seconds": 0,
+      "stated": "一年中时差为零的四天之一（约在 4 月 16 日附近）",
+      "source": "紫金山天文台科普（新华社 2022-02-24）",
+      "tolerance_seconds": 60,
+      "confidence": "official-approx"
+    },
+    {
+      "date": "2024-06-13",
+      "eot_seconds": 0,
+      "stated": "一年中时差为零的四天之一（约在 6 月 13 日附近）",
+      "source": "紫金山天文台科普（新华社 2022-02-24）",
+      "tolerance_seconds": 60,
+      "confidence": "official-approx"
+    },
+    {
+      "date": "2024-09-01",
+      "eot_seconds": 0,
+      "stated": "一年中时差为零的四天之一（约在 9 月 1 日附近）",
+      "source": "紫金山天文台科普（新华社 2022-02-24）",
+      "tolerance_seconds": 60,
+      "confidence": "official-approx"
+    },
+    {
+      "date": "2024-12-25",
+      "eot_seconds": 0,
+      "stated": "一年中时差为零的四天之一（约在 12 月 25 日附近）",
+      "source": "紫金山天文台科普（新华社 2022-02-24）",
+      "tolerance_seconds": 60,
+      "confidence": "official-approx"
+    },
+    {
+      "date": "2024-02-12",
+      "eot_seconds": -860,
+      "stated": "真太阳时比平太阳时晚约 14 分 20 秒（全年极小值附近）",
+      "source": "百科（时间与历法条目，非天文台直接发布）",
+      "tolerance_seconds": 30,
+      "confidence": "secondary"
+    },
+    {
+      "date": "2024-11-03",
+      "eot_seconds": 983,
+      "stated": "真太阳时比平太阳时早约 16 分 23 秒（全年极大值附近）",
+      "source": "百科（时间与历法条目，非天文台直接发布）",
+      "tolerance_seconds": 30,
+      "confidence": "secondary"
+    }
+  ],
+  "extremes": {
+    "note": "全年极值应落在 −14.3 ~ +16.4 分钟区间，超过即说明实现有量级错误",
+    "min_minutes": -14.5,
+    "max_minutes": 16.5
+  }
+}

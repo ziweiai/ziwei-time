@@ -75,7 +75,9 @@ trueSolarTime({ date: '1972-11-08', time: '00:36', longitude: 104.07 });
 | `cityCoords(city)` | 城市名 → `[经度, 纬度]` |
 | `tzOffsetMinutes(utcMs, tz)` | 某瞬间某时区的民用时偏移（分钟） |
 | `chinaDstMinutes(y, m, d, h, min)` | 是否处于中国 1986–1991 夏令时 |
-| `equationOfTime(y, m, d)` | 均时差（分钟） |
+| `equationOfTime(y, m, d, hour=12)` | 均时差（分钟），Meeus 高精度算法，误差 < 1 秒 |
+| `equationOfTimeApprox(y, m, d)` | 旧近似式，**仅供对照**（实测最大偏差 65 秒） |
+| `julianDay(y, m, d, hour)` | 儒略日 |
 | `BRANCHES` | 十二地支 |
 
 ### CLI
@@ -83,9 +85,9 @@ trueSolarTime({ date: '1972-11-08', time: '00:36', longitude: 104.07 });
 ```bash
 npx ziwei-time --date 2002-07-07 --time 05:05 --city 洛杉矶
 # 民用时    2002-07-07 05:05  America/Los_Angeles
-# 真太阳时  2002-07-07 04:08
+# 真太阳时  2002-07-07 04:07
 # 时刻      寅时   timeIndex=2
-# 修正      -57 分钟  [经度 -473.0 / 均时差 -4.5]
+# 修正      -58 分钟  [经度 -53.0 / 均时差 -4.9]
 
 npx ziwei-time --date 1972-11-08 --time 00:36 --city 成都 --json
 ```
