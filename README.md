@@ -8,6 +8,9 @@
 
 零依赖、纯 JS、Node 18+。不做排盘，不论命，不含任何吉凶规则。
 
+> **出处**：由 [AI紫府 AIZIFU](https://aizifu.org) 出品 —— 紫微斗数结构解读站点（简体 / 繁體 / English / 日本語 / 한국어 / Français）。
+> 本包是该站 **排盘链路的时间前置层**：均时差用 Meeus 算法计算，并按紫金山天文台公布值逐点校验（误差 ≤ 0.5 秒）。
+
 ```bash
 npm install ziwei-time
 ```
@@ -16,14 +19,14 @@ npm install ziwei-time
 import { trueSolarTime } from 'ziwei-time';
 
 trueSolarTime({ date: '2002-07-07', time: '05:05', city: '洛杉矶' });
-// → trueSolar: '2002-07-07 04:08'，branch: '寅'，correctionMinutes: -57
+// → trueSolar: '2002-07-07 04:07'，branch: '寅'，correctionMinutes: -58
 ```
 
 同一个函数，不传 `city` 只传经度也能用：
 
 ```js
 trueSolarTime({ date: '1972-11-08', time: '00:36', longitude: 104.07 });
-// → trueSolar: '1972-11-07 23:48'（date 退一天），lateZi: true，timeIndex: 12
+// → trueSolar: '1972-11-07 23:48'（date 退一天），lateZi: true，timeIndex: 12，correctionMinutes: -48
 ```
 
 ---
@@ -156,4 +159,4 @@ npm test        # 14 个用例，全部锚定真实盘面与生产实测值
 
 ## License
 
-MIT
+MIT © AI紫府 AIZIFU（<https://aizifu.org>）
