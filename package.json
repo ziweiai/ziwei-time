@@ -1,0 +1,43 @@
+{
+  "name": "ziwei-time",
+  "version": "0.1.0",
+  "description": "True solar time and time-branch resolution for Chinese astrology charts: IANA time zones, DST rules, equation of time, late-Zi hour.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./data": "./src/data.js"
+  },
+  "bin": {
+    "ziwei-time": "./cli.js"
+  },
+  "files": [
+    "src",
+    "cli.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "demo": "node cli.js --date 2002-07-07 --time 05:05 --city 洛杉矶"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ziwei",
+    "ziwei-doushu",
+    "true-solar-time",
+    "equation-of-time",
+    "timezone",
+    "dst",
+    "chinese-calendar",
+    "bazi"
+  ],
+  "license": "MIT",
+  "author": "AI紫府 (ziweiai.cn)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziweiai/ziwei-time.git"
+  }
+}
