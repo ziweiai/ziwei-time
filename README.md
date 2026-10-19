@@ -1,5 +1,9 @@
 # ziwei-time
 
+[![npm](https://img.shields.io/npm/v/ziwei-time.svg)](https://www.npmjs.com/package/ziwei-time)
+[![license](https://img.shields.io/npm/l/ziwei-time.svg)](./LICENSE)
+[![node](https://img.shields.io/node/v/ziwei-time.svg)](package.json)
+
 **把「出生地钟面上写的那一刻」换算成「当地真太阳时」，并给出对应的时辰 —— 含 IANA 时区、夏令时规则、均时差与晚子时裁决。**
 
 零依赖、纯 JS、Node 18+。不做排盘，不论命，不含任何吉凶规则。
